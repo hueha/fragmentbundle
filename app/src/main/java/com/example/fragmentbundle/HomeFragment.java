@@ -1,0 +1,31 @@
+package com.example.fragmentbundle;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+public class HomeFragment extends Fragment {
+    View view;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        Bundle bundle = getArguments();
+        String str = bundle.getString("text");
+
+        TextView tv_note = view.findViewById(R.id.tv_note);
+        tv_note.setText(str);
+
+        return view;
+    }
+
+
+}
